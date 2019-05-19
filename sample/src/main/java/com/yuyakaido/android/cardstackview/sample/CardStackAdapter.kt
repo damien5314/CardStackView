@@ -1,6 +1,5 @@
 package com.yuyakaido.android.cardstackview.sample
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import com.bumptech.glide.Glide
 
 class CardStackAdapter(
         private var spots: List<Spot> = emptyList()
-) : RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
+) : androidx.recyclerview.widget.RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -42,7 +41,7 @@ class CardStackAdapter(
         return spots
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         val name: TextView = view.findViewById(R.id.item_name)
         var city: TextView = view.findViewById(R.id.item_city)
         var image: ImageView = view.findViewById(R.id.item_image)

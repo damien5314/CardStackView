@@ -1,13 +1,6 @@
 package com.yuyakaido.android.cardstackview.sample
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -15,12 +8,17 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.DiffUtil
+import com.google.android.material.navigation.NavigationView
 import com.yuyakaido.android.cardstackview.*
 import java.util.*
 
 class MainActivity : AppCompatActivity(), CardStackListener {
 
-    private val drawerLayout by lazy { findViewById<DrawerLayout>(R.id.drawer_layout) }
+    private val drawerLayout by lazy { findViewById<androidx.drawerlayout.widget.DrawerLayout>(R.id.drawer_layout) }
     private val cardStackView by lazy { findViewById<CardStackView>(R.id.card_stack_view) }
     private val manager by lazy { CardStackLayoutManager(this, this) }
     private val adapter by lazy { CardStackAdapter(createSpots()) }
@@ -151,7 +149,7 @@ class MainActivity : AppCompatActivity(), CardStackListener {
         cardStackView.layoutManager = manager
         cardStackView.adapter = adapter
         cardStackView.itemAnimator.apply {
-            if (this is DefaultItemAnimator) {
+            if (this is androidx.recyclerview.widget.DefaultItemAnimator) {
                 supportsChangeAnimations = false
             }
         }
